@@ -1,32 +1,44 @@
 // imports
 // =======
 
-var Parser = require('jsonparse');
-var util = require('util');
+var Parser = window['jsonparse'];
+
+// from https://github.com/isaacs/inherits/blob/master/inherits_browser.js
+var inherits = function (ctor, superCtor) {
+  ctor.super_ = superCtor
+  ctor.prototype = Object.create(superCtor.prototype, {
+    constructor: {
+      value: ctor,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+};
 
 // Parser
 // ========
 
-f = function() {
+f = function () {
   Parser.call(this);
 
   this.res = [];
-  this.onValue = function(value) {
+  this.onValue = function (value) {
     if (!this.stack.length) this.res.push(value);
   };
 };
-util.inherits(f, Parser);
+inherits(f, Parser);
 
 
-f.prototype.get = function() {
+f.prototype.get = function () {
   return this.res;
 };
 
-f.prototype.clear = function() {
+f.prototype.clear = function () {
   this.res = [];
 };
 
 // exports
 // ======
 
-module.exports = f;
+window['jsonparsearray'] = f;
