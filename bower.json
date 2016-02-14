@@ -1,7 +1,7 @@
 {
-  "name": "jsonparsearray",
+  "name": "jsonparse",
   "description": "Parse streaming json into an array",
-  "main": "build/jsonparsearray.min.js",
+  "main": "./browser/jsonparsearray.min.js",
   "authors": [
     "Jonas Colmsjö"
   ],

@@ -5,11 +5,11 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 
-var DEST = 'build/';
+var DEST = './';
 
 gulp.task('default', function() {
-  return gulp.src(['buffer.js','jsonparse.js','jsonparsearray.js'])
-    .pipe(concat('jsonparsearray.js'))
+  return gulp.src(['./src/buffer.js','./src/jsonparse.js','./src/jsonparsearray.js'])
+    .pipe(concat('./browser/jsonparsearray.js'))
     // This will output the non-minified version
     .pipe(gulp.dest(DEST))
     // This will minify and rename to foo.min.js
